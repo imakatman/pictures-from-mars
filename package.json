@@ -5,6 +5,7 @@
   "homepage": "http://imakatman.github.io/pictures-from-mars-v3",
   "dependencies": {
     "@material-ui/core": "^4.4.3",
+    "gh-pages": "^2.1.1",
     "materialize-css": "^1.0.0-rc.2",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
@@ -35,7 +36,6 @@
   },
   "devDependencies": {
     "classnames": "^2.2.6",
-    "gh-pages": "^2.1.1",
     "prettier": "^1.18.2"
   }
 }
