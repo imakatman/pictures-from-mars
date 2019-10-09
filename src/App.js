@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import cx from "classnames";
 import "./App.css";
 import Slideshow from "./Slideshow/Slideshow";
 
@@ -10,24 +9,20 @@ function App() {
   let [solToDisplay, setSolToDisplay] = useState();
   let [photos, setPhotos] = useState([]);
   let [io, turnOnSlideshow] = useState();
-  let [currentPhotoIndex, setDisplayingPhotoIndex] = useState(0);
-  let [slide, setSlideMetaData] = useState();
-
-  let slideShowGenerator;
 
   useEffect(() => {
     fetch(`${baseUrl}?api_key=${API_KEY}`)
       .then(response => response.json())
       .then(json => {
         const maxSol = json.rovers[0].max_sol;
-        console.log("maxSol", maxSol);
+        //console.log("maxSol", maxSol);
         return setSolToDisplay(maxSol);
       })
       .catch(err => err.message);
   }, []);
 
   useEffect(() => {
-    console.log("solToDisplay", solToDisplay);
+    //console.log("solToDisplay", solToDisplay);
     if (solToDisplay) {
       fetch(
         `${baseUrl}/curiosity/photos?api_key=${API_KEY}&sol=${solToDisplay}`
@@ -39,7 +34,7 @@ function App() {
           turnOnSlideshow(true);
         })
         .catch(err => err.message);
-      console.log("////////////////////////////////////////////");
+      //console.log("////////////////////////////////////////////");
     }
   }, [solToDisplay]);
 
@@ -47,13 +42,13 @@ function App() {
     if (io === false) {
       const previousSol = Number(solToDisplay) - 1;
       setSolToDisplay(previousSol);
-      console.log("////////////////////////////////////////////");
+      //console.log("////////////////////////////////////////////");
     }
   }, [io]);
 
   return (
-    <div className="container">
-      <div className="row">                        
+    <div className="container valign-wrapper">
+      <div className="row App-slideshow-container">                        
         {io && (
           <Slideshow
             photos={photos}
