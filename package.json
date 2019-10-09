@@ -2,7 +2,7 @@
   "name": "pictures-from-mars",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://imakatman.github.io/pictures-from-mars-v3",
+  "homepage": "http://imakatman.github.io/pictures-from-mars",
   "dependencies": {
     "@material-ui/core": "^4.4.3",
     "materialize-css": "^1.0.0-rc.2",
