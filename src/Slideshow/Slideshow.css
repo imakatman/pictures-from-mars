@@ -1,0 +1,17 @@
+.image-wrapper {
+  margin-top: 1.875rem;
+  margin-bottom: 1.875rem;
+}
+
+.fields-container {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+
+.field-wrapper {
+  padding-bottom: 2.875rem;
+}
+
+.field {
+  padding-bottom: 0.5rem;
+}

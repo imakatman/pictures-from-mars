@@ -9,24 +9,38 @@ function Slideshow(props) {
   console.log("photos", photos);
   let [currentPhotoIndex, setDisplayingPhotoIndex] = useState(0);
   let [slide, setSlideMetaData] = useState();
+  let [ioStartInterval, startInterval] = useState(false);
 
   let slideShowGenerator;
 
+  function runSlideshow(photo, acc) {
+    console.log("currentPhotoIndex", photo);
+    setSlideMetaData(photo);
+
+    console.log("slideShowGenerator currentPhotoIndex", acc);
+
+    console.log("currentPhotoIndex", currentPhotoIndex);
+  }
+
   useEffect(() => {
-    if (photos.length > 0 && currentPhotoIndex === 0) {
+    runSlideshow(photos[0], 0);
+    setDisplayingPhotoIndex(currentPhotoIndex++);
+    startInterval(true);
+  }, []);
+
+  useEffect(() => {
+    if (ioStartInterval && photos.length > 0 && currentPhotoIndex === 0) {
+      console.log(
+        "if (ioStartInterval && photos.length > 0 && currentPhotoIndex === 0)"
+      );
       slideShowGenerator = setInterval(() => {
-        console.log("currentPhotoIndex");
-        setSlideMetaData(photos[currentPhotoIndex]);
-
-        console.log("slideShowGenerator currentPhotoIndex", currentPhotoIndex);
-        console.log("photos.length", photos.length);
-
+        runSlideshow(photos[currentPhotoIndex], currentPhotoIndex);
         setDisplayingPhotoIndex(currentPhotoIndex++);
-
+        console.log("photos.length", photos.length);
         console.log("////////////////////////////////////////////");
       }, 3000);
     }
-  }, [photos]);
+  }, [photos, ioStartInterval]);
 
   if (currentPhotoIndex === photos.length) {
     setDisplayingPhotoIndex(0);
@@ -36,18 +50,33 @@ function Slideshow(props) {
 
   if (slide) {
     return (
-      <>
-        <h2>{slide.earth_date}</h2>
-        <div className="row">
-          <div className="col s7">
+        <div className="row slideshow-container">
+          <div className="col s7 image-wrapper">
             <img src={slide.img_src} style={{ width: "100%" }} />
           </div>
-          <div className="col s5">
-            <h3>Sol: {slide.sol}</h3>
-            <h3>{slide.camera.full_name}</h3>
+          <div className="col s5 fields-container">
+            <div className="field-wrapper">
+              <p className="field">Earch Date</p>
+              <p>{slide.earth_date}</p>
+            </div>
+            <div className="field-wrapper">
+              <p className="field">Sol Date</p>
+              <p className="value">{slide.sol}</p>
+            </div>
+            <div className="field-wrapper">
+              <p className="field">Location</p>
+              <p className="value">Mars</p>
+            </div>
+            <div className="field-wrapper">
+              <p className="field">Rover</p>
+              <p className="value">Curisoity</p>
+            </div>
+            <div className="field-wrapper">
+              <p className="field">Camera</p>
+              <p className="value">{slide.camera.full_name}</p>
+            </div>
           </div>
         </div>
-      </>
     );
   }
 

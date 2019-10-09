@@ -3,8 +3,8 @@ import cx from "classnames";
 import "./App.css";
 import Slideshow from "./Slideshow/Slideshow";
 
-const baseUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/`;
-const API_KEY = `8m8bkcVYqxE5j0vQL2wk1bpiBGibgaqCrOvwZVyU`;
+const baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
+const API_KEY = "8m8bkcVYqxE5j0vQL2wk1bpiBGibgaqCrOvwZVyU";
 
 function App() {
   let [solToDisplay, setSolToDisplay] = useState();
@@ -34,7 +34,8 @@ function App() {
       )
         .then(response => response.json())
         .then(json => {
-          setPhotos(json.photos);
+          const nonMastPhotos = json.photos.filter(photo => photo.camera.name !== "MAST");
+          setPhotos(nonMastPhotos);
           turnOnSlideshow(true);
         })
         .catch(err => err.message);
@@ -52,10 +53,7 @@ function App() {
 
   return (
     <div className="container">
-      <div className="row">
-        <h1 className={cx({ "slideshow-started": io })}>
-          Photos taken by Curiosity on Mars
-        </h1>
+      <div className="row">                        
         {io && (
           <Slideshow
             photos={photos}
