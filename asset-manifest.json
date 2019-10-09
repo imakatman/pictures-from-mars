@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/pictures-from-mars/static/css/main.8f8f11be.chunk.css",
-    "main.js": "/pictures-from-mars/static/js/main.0d2f286f.chunk.js",
-    "main.js.map": "/pictures-from-mars/static/js/main.0d2f286f.chunk.js.map",
-    "runtime-main.js": "/pictures-from-mars/static/js/runtime-main.d98a062c.js",
-    "runtime-main.js.map": "/pictures-from-mars/static/js/runtime-main.d98a062c.js.map",
-    "static/js/2.4289a41e.chunk.js": "/pictures-from-mars/static/js/2.4289a41e.chunk.js",
-    "static/js/2.4289a41e.chunk.js.map": "/pictures-from-mars/static/js/2.4289a41e.chunk.js.map",
-    "index.html": "/pictures-from-mars/index.html",
-    "precache-manifest.28ef8e383158cb3dfe86fa78003a4bf9.js": "/pictures-from-mars/precache-manifest.28ef8e383158cb3dfe86fa78003a4bf9.js",
-    "service-worker.js": "/pictures-from-mars/service-worker.js",
-    "static/css/main.8f8f11be.chunk.css.map": "/pictures-from-mars/static/css/main.8f8f11be.chunk.css.map"
+    "main.css": "/pictures-from-mars-v3/static/css/main.6288a1bd.chunk.css",
+    "main.js": "/pictures-from-mars-v3/static/js/main.a9904cd9.chunk.js",
+    "main.js.map": "/pictures-from-mars-v3/static/js/main.a9904cd9.chunk.js.map",
+    "runtime-main.js": "/pictures-from-mars-v3/static/js/runtime-main.d98a062c.js",
+    "runtime-main.js.map": "/pictures-from-mars-v3/static/js/runtime-main.d98a062c.js.map",
+    "static/js/2.aa18dc84.chunk.js": "/pictures-from-mars-v3/static/js/2.aa18dc84.chunk.js",
+    "static/js/2.aa18dc84.chunk.js.map": "/pictures-from-mars-v3/static/js/2.aa18dc84.chunk.js.map",
+    "index.html": "/pictures-from-mars-v3/index.html",
+    "precache-manifest.d3cc23bc042843ccc65a41d71f189024.js": "/pictures-from-mars-v3/precache-manifest.d3cc23bc042843ccc65a41d71f189024.js",
+    "service-worker.js": "/pictures-from-mars-v3/service-worker.js",
+    "static/css/main.6288a1bd.chunk.css.map": "/pictures-from-mars-v3/static/css/main.6288a1bd.chunk.css.map"
   }
 }
