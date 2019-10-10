@@ -61,6 +61,7 @@ function Slideshow(props) {
           photos.map((photo, i) => (
             <div
               className="slideshow-image"
+              key={photo.id}
               style={{
                 backgroundImage: `url(${photo.img_src})`,
                 opacity: currentPhotoIndex === i ? 1 : 0,
