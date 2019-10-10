@@ -16,7 +16,8 @@ function App() {
       .then(json => {
         const maxSol = json.rovers[0].max_sol;
         // console.log("maxSol", maxSol);
-        return setSolToDisplay(maxSol);
+        // return setSolToDisplay(maxSol);
+        return setSolToDisplay(2532);
       })
       .catch(err => err.message);
   }, []);
@@ -29,11 +30,16 @@ function App() {
       )
         .then(response => response.json())
         .then(json => {
-          const nonMastPhotos = json.photos.filter(
-            photo => photo.camera.name !== "MAST"
-          );
-          setPhotos(nonMastPhotos);
-          turnOnSlideshow(true);
+          if(json.photos.length > 0){
+            const nonMastPhotos = json.photos.filter(
+              photo => photo.camera.name !== "MAST"
+            );
+            setPhotos(nonMastPhotos);
+            turnOnSlideshow(true);
+          } else {
+            const previousSol = Number(solToDisplay) - 1;
+            setSolToDisplay(previousSol);
+          }                                                  
         })
         .catch(err => err.message);
       //console.log("////////////////////////////////////////////");
