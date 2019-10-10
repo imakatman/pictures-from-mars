@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c9c3c6448ed6440d561bfa4c73c03694",
+    "revision": "bb46a296a55e7a1cdca5ffa1e78458ed",
     "url": "/pictures-from-mars/index.html"
   },
   {
-    "revision": "ffc156e0840a51768523",
+    "revision": "776c67e6288d2463a8b1",
     "url": "/pictures-from-mars/static/css/main.5949827d.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pictures-from-mars/static/js/2.aa18dc84.chunk.js"
   },
   {
-    "revision": "ffc156e0840a51768523",
-    "url": "/pictures-from-mars/static/js/main.76ee894f.chunk.js"
+    "revision": "776c67e6288d2463a8b1",
+    "url": "/pictures-from-mars/static/js/main.de140242.chunk.js"
   },
   {
     "revision": "2b8fcdb9246d46133980",
