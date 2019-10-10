@@ -3,38 +3,47 @@ import "./Slideshow.css";
 
 function Slideshow(props) {
   const { photos, turnOffSlideshow } = props;
-  // console.log("photos", photos);
+  // //console.log("photos", photos);
   let [currentPhotoIndex, setDisplayingPhotoIndex] = useState(0);
-  let [slide, setSlideMetaData] = useState();
+  let [slide, setSlideMetaData] = useState({
+    img_src: "",
+    earth_date: "",
+    sol: "",
+    camera: {
+      full_name: ""
+    }
+  });
   let [ioStartInterval, startInterval] = useState(false);
 
   let slideShowGenerator;
 
   function runSlideshow(photo, acc) {
-    // console.log("currentPhotoIndex", photo);
+    //console.log("currentPhotoIndex", photo);
     setSlideMetaData(photo);
 
-    // console.log("slideShowGenerator currentPhotoIndex", acc);
+    //console.log("slideShowGenerator currentPhotoIndex", acc);
 
-    // console.log("currentPhotoIndex", currentPhotoIndex);
+    //console.log("currentPhotoIndex", currentPhotoIndex);
   }
 
   useEffect(() => {
     runSlideshow(photos[0], 0);
     setDisplayingPhotoIndex(currentPhotoIndex++);
-    startInterval(true);
+    // startInterval(true);
   }, []);
 
   useEffect(() => {
     if (ioStartInterval && photos.length > 0 && currentPhotoIndex === 0) {
-      // console.log(
-      //        "if (ioStartInterval && photos.length > 0 && currentPhotoIndex === 0)"
-      //      );
+      //console.log(
+      //"if (ioStartInterval && photos.length > 0 && currentPhotoIndex === 0)"
+      //);
       slideShowGenerator = setInterval(() => {
-        runSlideshow(photos[currentPhotoIndex], currentPhotoIndex);
-        setDisplayingPhotoIndex(currentPhotoIndex++);
-        // console.log("photos.length", photos.length);
-        // console.log("////////////////////////////////////////////");
+        if (currentPhotoIndex <= photos.length) {
+          runSlideshow(photos[currentPhotoIndex], currentPhotoIndex);
+          setDisplayingPhotoIndex(currentPhotoIndex++);
+          //console.log("photos.length", photos.length);
+          //console.log("////////////////////////////////////////////");
+        }
       }, 3000);
     }
   }, [photos, ioStartInterval]);
@@ -45,41 +54,42 @@ function Slideshow(props) {
     return turnOffSlideshow();
   }
 
-  if (slide) {
-    return (
-      <div className="row slideshow-container">
-        <div className="col s7 image-wrapper valign-wrapper">
-          <img src={slide.img_src} style={{ width: "100%" }} />
-        </div>
-        <div className="col s5 fieldCollection-container">
-          <div className="fieldCollection-wrapper valign-wrapper">
-            <div className="field-wrapper">
-              <p className="field">Earth Date</p>
-              <p className="value">{slide.earth_date}</p>
-            </div>
-            <div className="field-wrapper">
-              <p className="field">Sol Date</p>
-              <p className="value">{slide.sol}</p>
-            </div>
-            <div className="field-wrapper">
-              <p className="field">Location</p>
-              <p className="value">Mars</p>
-            </div>
-            <div className="field-wrapper">
-              <p className="field">Rover</p>
-              <p className="value">Curiosity</p>
-            </div>
-            <div className="field-wrapper">
-              <p className="field">Camera</p>
-              <p className="value">{slide.camera.full_name}</p>
-            </div>
+  return (
+    <div className="row slideshow-container">
+      <div className="col s7 image-wrapper valign-wrapper">
+        {slide && (
+          <div
+            className="slideshow-image"
+            style={{ backgroundImage: `url(${slide.img_src})` }}
+          />
+        )}
+      </div>
+      <div className="col s5 fieldCollection-container">
+        <div className="fieldCollection-wrapper valign-wrapper">
+          <div className="field-wrapper">
+            <p className="field">Earth Date</p>
+            <p className="value">{slide ? slide.earth_date : ""}</p>
+          </div>
+          <div className="field-wrapper">
+            <p className="field">Sol Date</p>
+            <p className="value">{slide ? slide.sol : ""}</p>
+          </div>
+          <div className="field-wrapper">
+            <p className="field">Location</p>
+            <p className="value">Mars</p>
+          </div>
+          <div className="field-wrapper">
+            <p className="field">Rover</p>
+            <p className="value">Curiosity</p>
+          </div>
+          <div className="field-wrapper">
+            <p className="field">Camera</p>
+            <p className="value">{slide ? slide.camera.full_name : ""}</p>
           </div>
         </div>
       </div>
-    );
-  }
-
-  return null;
+    </div>
+  );
 }
 
 export default Slideshow;

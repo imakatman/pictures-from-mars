@@ -15,21 +15,23 @@ function App() {
       .then(response => response.json())
       .then(json => {
         const maxSol = json.rovers[0].max_sol;
-        //console.log("maxSol", maxSol);
+        // console.log("maxSol", maxSol);
         return setSolToDisplay(maxSol);
       })
       .catch(err => err.message);
   }, []);
 
   useEffect(() => {
-    //console.log("solToDisplay", solToDisplay);
+    // console.log("solToDisplay", solToDisplay);
     if (solToDisplay) {
       fetch(
         `${baseUrl}/curiosity/photos?api_key=${API_KEY}&sol=${solToDisplay}`
       )
         .then(response => response.json())
         .then(json => {
-          const nonMastPhotos = json.photos.filter(photo => photo.camera.name !== "MAST");
+          const nonMastPhotos = json.photos.filter(
+            photo => photo.camera.name !== "MAST"
+          );
           setPhotos(nonMastPhotos);
           turnOnSlideshow(true);
         })
@@ -48,7 +50,7 @@ function App() {
 
   return (
     <div className="container valign-wrapper">
-      <div className="row App-slideshow-container">                        
+      <div className="row App-slideshow-container">
         {io && (
           <Slideshow
             photos={photos}

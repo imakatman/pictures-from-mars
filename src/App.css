@@ -1,5 +1,5 @@
-html{
-  font-size: 16px;  
+html {
+  font-size: 16px;
 }
 
 p {
@@ -7,7 +7,7 @@ p {
 }
 
 .App {
-  font-family: 'Futura';
+  font-family: "Futura";
   text-align: center;
 }
 
@@ -30,8 +30,10 @@ p {
   color: #09d3ac;
 }
 
-.App-slideshow-container{
-  width:100%;
+.App-slideshow-container {
+  width: 100%;
+  height: calc(100vh - 1.875rem * 2);        
+  margin: 1.875rem;
 }
 
 .container {
