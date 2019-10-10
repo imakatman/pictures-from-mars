@@ -16,8 +16,8 @@ function App() {
       .then(json => {
         const maxSol = json.rovers[0].max_sol;
         // console.log("maxSol", maxSol);
-        // return setSolToDisplay(maxSol);
-        return setSolToDisplay(2532);
+        return setSolToDisplay(maxSol);
+        // return setSolToDisplay(2532);
       })
       .catch(err => err.message);
   }, []);

@@ -44,7 +44,7 @@ function Slideshow(props) {
           //console.log("photos.length", photos.length);
           //console.log("////////////////////////////////////////////");
         }
-      }, 3500);
+      }, 3000);
     }
   }, [photos, ioStartInterval]);
 
