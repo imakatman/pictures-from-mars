@@ -29,7 +29,7 @@ function Slideshow(props) {
   useEffect(() => {
     runSlideshow(photos[0], 0);
     setDisplayingPhotoIndex(currentPhotoIndex++);
-    // startInterval(true);
+    startInterval(true);
   }, []);
 
   useEffect(() => {
@@ -44,7 +44,7 @@ function Slideshow(props) {
           //console.log("photos.length", photos.length);
           //console.log("////////////////////////////////////////////");
         }
-      }, 3000);
+      }, 2500);
     }
   }, [photos, ioStartInterval]);
 
