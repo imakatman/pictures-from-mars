@@ -44,7 +44,7 @@ function Slideshow(props) {
           //console.log("photos.length", photos.length);
           //console.log("////////////////////////////////////////////");
         }
-      }, 2500);
+      }, 3500);
     }
   }, [photos, ioStartInterval]);
 
@@ -57,12 +57,17 @@ function Slideshow(props) {
   return (
     <div className="row slideshow-container">
       <div className="col s7 image-wrapper valign-wrapper">
-        {slide && (
-          <div
-            className="slideshow-image"
-            style={{ backgroundImage: `url(${slide.img_src})` }}
-          />
-        )}
+        {slide &&
+          photos.map((photo, i) => (
+            <div
+              className="slideshow-image"
+              style={{
+                backgroundImage: `url(${photo.img_src})`,
+                opacity: currentPhotoIndex === i ? 1 : 0,
+                transition: "opacity 0.35 ease"
+              }}
+            />
+          ))}
       </div>
       <div className="col s5 fieldCollection-container">
         <div className="fieldCollection-wrapper valign-wrapper">
