@@ -86,6 +86,10 @@ function Slideshow(props) {
             <p className="field">Camera</p>
             <p className="value">{slide ? slide.camera.full_name : ""}</p>
           </div>
+          <div className="field-wrapper">
+            <p className="field">Photo ID</p>
+            <p className="value">{slide ? slide.id : ""}</p>
+          </div>
         </div>
       </div>
     </div>
